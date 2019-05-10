@@ -43,12 +43,13 @@ WHERE description='Gold';
 
 -----------------------------------------------------------------------------------------------------------------------------
 
-4.Write a query to display the number of customers having card with description “Gold card”. 
-<br/>Hint: Use CUSTOMER_COUNT as alias name for number of customers
+5.Write a query to display the customer id, customer name, year of registration,library card id, card issue date of all the customers who hold library card. Display the records sorted by customer name in descending order. Use REGISTERED_YEAR as alias name for year of registration.
 
-A) SELECT count(c.customer_id) CUSTOMER_COUNT FROM 
-   library_card_master l JOIN customer_card_details c ON l.CARD_ID=c.CARD_ID
-   WHERE description='Gold';
+A) SELECT c.customer_id,c.customer_name,
+year(c.DATE_OF_REGISTRATION) REGISTERED_YEAR,cd.card_id,cd.issue_date FROM 
+customer_master c JOIN customer_card_details cd ON c.customer_id=cd.customer_id
+ORDER BY CUSTOMER_NAME DESC;
+
    
    ---------------------------------------------------------------------------------------------------------------------------------
    
