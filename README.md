@@ -96,7 +96,7 @@ ORDER BY CUSTOMER_NAME;
 acted maximum number of movies .Display the records sorted in ascending order based on movie name.
 SELECT movie_id,movie_name,release_date,director FROM movies_master 
 
-A) WHERE lead_role_1 IN(SELECT lead_role_1 FROM 
+A) SELECT movie_id,movie_name,release_date,director FROM movies_master WHERE lead_role_1 IN(SELECT lead_role_1 FROM 
 (SELECT lead_role_1,count(movie_id)ct FROM movies_master 
 GROUP BY lead_role_1)t WHERE t.ct>=ALL(SELECT count(movie_id) 
 FROM movies_master GROUP BY lead_role_1)) ORDER BY movie_name;
